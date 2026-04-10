@@ -1,17 +1,37 @@
 package com.pluralsight;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Declaring Variable
+        String name;
+        double  hoursWorked;
+        double payRate;
+        double grossPay;
+        double  overTimePay;
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Input for Name , Pay rate , Hours Worked
+        System.out.println("What is your name: ");
+        name = scanner.nextLine();
+        System.out.println("How many hours you worked: ");
+        hoursWorked = Double.parseDouble(scanner.nextLine());
+        System.out.println("How much is your pay rate: ");
+        payRate = Double.parseDouble(scanner.nextLine());
+
+        // Using if statement to check for overtime
+        if (hoursWorked >40){
+        // if true  -> hours more than 40 will be paid 1.5X of Pay rate.
+            overTimePay = 40*payRate+(1.5*payRate*(hoursWorked-40));
+            System.out.printf("hello %s , Your gross pay is :$%.2f",name , overTimePay);
+        } else {
+        // if false -> regular calculation hours * pay rate.
+            grossPay = hoursWorked * payRate;
+            System.out.printf("hello %s Your gross pay is :$%.2f",name,grossPay);
         }
+
+
+
     }
 }
