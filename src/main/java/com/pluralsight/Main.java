@@ -9,7 +9,6 @@ public class Main {
         double  hoursWorked;
         double payRate;
         double grossPay;
-        double  overTimePay;
         Scanner scanner = new Scanner(System.in);
 
         // Input for Name , Pay rate , Hours Worked
@@ -23,14 +22,13 @@ public class Main {
         // Using if statement to check for overtime
         if (hoursWorked >40){
         // if true  -> hours more than 40 will be paid 1.5X of Pay rate.
-            overTimePay = 40*payRate+(1.5*payRate*(hoursWorked-40));
-            System.out.printf("hello %s , Your gross pay is :$%.2f",name , overTimePay);
+            grossPay = 40*payRate+(1.5*payRate*(hoursWorked-40));
         } else {
-        // if false -> regular calculation hours * pay rate.
+            // if false -> regular calculation hours * pay rate.
             grossPay = hoursWorked * payRate;
-            System.out.printf("hello %s Your gross pay is :$%.2f",name,grossPay);
         }
 
+        System.out.printf("hello %s , Your gross pay is :$%.2f",name , grossPay);
 
 
     }
